@@ -4,7 +4,7 @@ export class StringHelper {
   
   public static convertDateToBr(stringDate: string): string {
     if (stringDate.indexOf('-') >= 0) {
-      let arrStringDate = stringDate.split('-');
+      const arrStringDate = stringDate.split('-');
       stringDate = `${arrStringDate[2]}/${arrStringDate[1]}/${arrStringDate[0]}`;
     }
     
@@ -44,24 +44,24 @@ export class StringHelper {
   }
   
   public static generateRandomString(length: number, numbers: boolean, uppercase: boolean = false, lowercase: boolean = false, specialCharacters: boolean = false): string {
-    let lmin = 'abcdefghijklmnopqrstuvwxyz';
-    let lmai = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    let num = '1234567890';
-    let simb = '@%_-#$%&*!';
+    const lmin = 'abcdefghijklmnopqrstuvwxyz';
+    const lmai = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const num = '1234567890';
+    const simb = '@%_-#$%&*!';
     let result = '';
     let characters = '';
-    
+  
     if (lowercase) characters += lmin;
     if (uppercase) characters += lmai;
     if (numbers) characters += num;
     if (specialCharacters) characters += simb;
-    
-    let len = characters.length;
+  
+    const len = characters.length;
     for (let n = 1; n <= length; n++) {
-      let rand = Math.floor(Math.random() * (len - 1 + 1)) + 1;
+      const rand = Math.floor(Math.random() * (len - 1 + 1)) + 1;
       result += characters[rand - 1];
     }
-    
+  
     return result;
   }
   
