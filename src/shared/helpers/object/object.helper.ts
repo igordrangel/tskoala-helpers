@@ -2,15 +2,17 @@ import b64toBlob from 'b64-to-blob';
 
 export class ObjectHelper {
   
-  public static push(dados: object = {}, object: object): object {
-    $.each(object, (key, value) => {
-      dados[key] = value;
-    });
+  public static merge<A, B>(dados: A, object: B): A {
+    if (!dados) dados = {} as A;
+    const result: any = dados;
+    Object.keys(object).forEach(((value, index) => {
+      result[index] = value;
+    }));
     
-    return dados;
+    return result;
   }
   
-  public static convertToString(arr: object[], paramsName: string[], delimiter: string = ',', delimiterParam: string = '-'): string {
+  public static toString(arr: any[], paramsName: string[], delimiter: string = ',', delimiterParam: string = '-'): string {
     let stringResult = '';
     arr.forEach(obj => {
       let name = '';

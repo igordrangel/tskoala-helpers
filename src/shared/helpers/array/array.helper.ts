@@ -1,9 +1,12 @@
 export class ArrayHelper {
-	
-	public static objectToArray(listObject: any) {
-		const result = [];
-		$.each(listObject, (value, key) => {
-			result[key.toString()] = value;
+	/**
+	 * @description Converte um object em array
+	 * @param listObject
+	 */
+	public static objectToArray<T>(listObject: T): any[] {
+		const result: any[] = [];
+		Object.keys(listObject).forEach((value, key) => {
+			result[key] = value;
 		});
 		
 		return result;
@@ -12,7 +15,7 @@ export class ArrayHelper {
 	public static getIndexFromArray(listObject: object[], key: string, value: string | number): number {
 		let indexSearched: number = -1;
 		
-		listObject.forEach((item: object, index: number) => {
+		listObject.forEach((item: any, index: number) => {
 			if (item[key] === value) {
 				indexSearched = index;
 				return false;
@@ -22,26 +25,35 @@ export class ArrayHelper {
 		return indexSearched;
 	}
 	
+	/**
+	 * @description Divide o Array em grupos
+	 * @param array
+	 * @param maxRowsSplit
+	 */
 	public static splitArray(array: any[], maxRowsSplit: number): any[] {
-		const result = [[]];
+		const result: any[] = [];
 		let group = 0;
 		
-		for (let index = 0; index < array.length; index++) {
+		array.forEach((value, index) => {
 			if (result[group] === undefined) {
 				result[group] = [];
 			}
-			
-			result[group].push(array[index]);
+			result[group].push(value);
 			
 			if ((index + 1) % maxRowsSplit === 0) {
 				group = group + 1;
 			}
-		}
+		})
 		
 		return result;
 	}
 	
-	public static convertToString(array: any[], delimiter: string = ','): string {
+	/**
+	 * @description Converte array em string
+	 * @param array
+	 * @param delimiter
+	 */
+	public static toString(array: any[], delimiter: string = ','): string {
 		let stringResult = '';
 		
 		array.forEach((value) => {
@@ -59,19 +71,21 @@ export class ArrayHelper {
 		from.forEach(value => {
 			to.push(value);
 		});
+		
+		return to;
 	}
 	
-	public static filter<T>(arr: T[], value: string, index?: string): T[] {
+	public static filter<T>(arr: any[], value: string, index?: string): T[] {
 		return arr.filter(item => {
 			const filter = index ? item[index] : item;
 			if (filter) {
-				let find = true;
-				value
+				let find = false;
+				`${value}`
 					.toLowerCase()
 					.split(' ')
 					.forEach(part => {
-						if (filter.toLowerCase().indexOf(part) < 0) {
-							find = false;
+						if (`${filter}`.toLowerCase().indexOf(part) >= 0) {
+							find = true;
 							return false;
 						}
 					});
@@ -81,7 +95,7 @@ export class ArrayHelper {
 		});
 	}
 	
-	public static orderBy<T>(arr: T[], by: string): T[] {
+	public static orderBy<T>(arr: any[], by: string): T[] {
 		return arr.sort((a, b) => {
 			if (typeof a !== 'string' && typeof b !== 'string') {
 				if (a[by] > b[by]) {
