@@ -32,8 +32,8 @@ export class StringHelper {
     return lodash.camelCase(this.clear(value));
   }
   
-  public static unmaskCoin(string: string): number {
-    return parseFloat(Number(string
+  public static unmaskCoin(value: string): number {
+    return parseFloat(Number(value
       .replace("R$", "")
       .replace(/\s(?=\s)/g, "")
       .replace(/[\n\r\t]/g, "")
