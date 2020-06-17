@@ -43,7 +43,7 @@ export class ArrayHelper {
 			if ((index + 1) % maxRowsSplit === 0) {
 				group = group + 1;
 			}
-		})
+		});
 		
 		return result;
 	}
@@ -68,7 +68,7 @@ export class ArrayHelper {
 	}
 	
 	public static merge(from: any[], to: any[]) {
-		from.forEach(value => {
+		from.forEach((value) => {
 			to.push(value);
 		});
 		
@@ -76,14 +76,14 @@ export class ArrayHelper {
 	}
 	
 	public static filter<T>(arr: any[], value: string, index?: string): T[] {
-		return arr.filter(item => {
+		return arr.filter((item) => {
 			const filter = index ? item[index] : item;
 			if (filter) {
 				let find = false;
 				`${value}`
 					.toLowerCase()
 					.split(' ')
-					.forEach(part => {
+					.forEach((part) => {
 						if (`${filter}`.toLowerCase().indexOf(part) >= 0) {
 							find = true;
 							return false;
