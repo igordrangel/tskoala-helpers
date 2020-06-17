@@ -7,7 +7,7 @@ export class ObjectHelper {
     Object.keys(object).forEach((value, index) => {
       result[index] = value;
     });
-    
+
     return result;
   }
   
@@ -27,7 +27,7 @@ export class ObjectHelper {
           name += ` ${delimiterParam} ` + obj[paramName];
         }
       });
-      
+  
       if (!stringResult) {
         stringResult = name;
       } else {

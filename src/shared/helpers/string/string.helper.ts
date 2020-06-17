@@ -26,7 +26,7 @@ export class StringHelper {
       .replace(/\-\-+/g, '-') // Substitui multiplos hífens por um único hífen
       .replace(/(^-+|-+$)/, '');
   }
-  
+
   public static converToCamelCase(value: string) {
     return lodash.camelCase(this.clear(value));
   }
