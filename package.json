@@ -1,5 +1,5 @@
 {
-  "name": "koala",
+  "name": "tskoala",
   "version": "0.0.1",
   "description": "Biblioteca com validadores, conversores e abstrações de algumas problemáticas",
   "main": "dist/index.js",
