@@ -1,6 +1,6 @@
 {
   "name": "koala",
-  "version": "0.0.2",
+  "version": "0.0.0",
   "description": "Biblioteca com validadores, conversores e abstrações de algumas problemáticas",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -14,7 +14,7 @@
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags",
-    "deploy": "npm version patch && npm publish"
+    "deploy": "npm run build && npm version patch && npm publish"
   },
   "repository": {
     "type": "git",

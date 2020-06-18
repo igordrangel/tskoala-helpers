@@ -8,7 +8,7 @@ export class ArrayHelper {
     Object.keys(listObject).forEach((value, key) => {
       result[key] = value;
     });
-    
+  
     return result;
   }
   
@@ -89,7 +89,7 @@ export class ArrayHelper {
               return false;
             }
           });
-        
+  
         return find;
       }
     });

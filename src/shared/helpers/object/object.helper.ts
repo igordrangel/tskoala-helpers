@@ -10,7 +10,7 @@ export class ObjectHelper {
 
     return result;
   }
-  
+
   public static toString(
     arr: any[],
     paramsName: string[],
@@ -34,7 +34,7 @@ export class ObjectHelper {
         stringResult += `${delimiter}` + name;
       }
     });
-    
+  
     return `${stringResult}`;
   }
   

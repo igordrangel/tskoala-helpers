@@ -30,7 +30,7 @@ export class StringHelper {
   public static converToCamelCase(value: string) {
     return lodash.camelCase(this.clear(value));
   }
-  
+
   public static unmaskCoin(value: string): number {
     return parseFloat(
       Number(
