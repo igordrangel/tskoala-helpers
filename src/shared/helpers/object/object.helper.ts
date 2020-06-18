@@ -14,7 +14,7 @@ export class ObjectHelper {
   public static toString(
     arr: any[],
     paramsName: string[],
-    delimiter: string      = ',',
+    delimiter: string = ',',
     delimiterParam: string = '-',
   ): string {
     let stringResult = '';
@@ -27,17 +27,17 @@ export class ObjectHelper {
           name += ` ${delimiterParam} ` + obj[paramName];
         }
       });
-  
+
       if (!stringResult) {
         stringResult = name;
       } else {
         stringResult += `${delimiter}` + name;
       }
     });
-  
+
     return `${stringResult}`;
   }
-  
+
   public static downloadBase64File(file: { filename: string; type: string; base64File: string }) {
     const link = document.createElement('a');
     link.setAttribute('href', URL.createObjectURL(this.getBlobFile(file.base64File, file.type)));
@@ -47,7 +47,7 @@ export class ObjectHelper {
     link.click();
     document.body.removeChild(link);
   }
-  
+
   public static viewPdf(file: { filename: string; type: string; base64File: string }) {
     const link = document.createElement('a');
     link.setAttribute('href', URL.createObjectURL(this.getBlobFile(file.base64File, 'application/pdf')));
@@ -57,7 +57,7 @@ export class ObjectHelper {
     link.click();
     document.body.removeChild(link);
   }
-  
+
   private static getBlobFile(base64File: string, type: string): Blob {
     return b64toBlob(base64File, type);
   }

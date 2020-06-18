@@ -44,12 +44,12 @@ export class StringHelper {
       ).toFixed(2),
     );
   }
-  
+
   public static generateRandomString(
     length: number,
     numbers: boolean,
-    uppercase: boolean         = false,
-    lowercase: boolean         = false,
+    uppercase: boolean = false,
+    lowercase: boolean = false,
     specialCharacters: boolean = false,
   ): string {
     const lmin = 'abcdefghijklmnopqrstuvwxyz';
@@ -58,21 +58,21 @@ export class StringHelper {
     const simb = '@%_-#$%&*!';
     let result = '';
     let characters = '';
-    
+
     if (lowercase) characters += lmin;
     if (uppercase) characters += lmai;
     if (numbers) characters += num;
     if (specialCharacters) characters += simb;
-    
+
     const len = characters.length;
     for (let n = 1; n <= length; n++) {
       const rand = Math.floor(Math.random() * (len - 1 + 1)) + 1;
       result += characters[rand - 1];
     }
-    
+
     return result;
   }
-  
+
   public static applyMaskCpfOnString(cpf: string) {
     return cpf
       .replace(/\D/g, '')
@@ -80,7 +80,7 @@ export class StringHelper {
       .replace(/(\d{3})(\d)/, '$1.$2')
       .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
   }
-  
+
   public static nbl2br(value: string) {
     return value.replace(new RegExp(/\r\n|\r|\n/, 'gi'), '<br/>');
   }

@@ -8,23 +8,23 @@ export class ArrayHelper {
     Object.keys(listObject).forEach((value, key) => {
       result[key] = value;
     });
-  
+
     return result;
   }
-  
+
   public static getIndexFromArray(listObject: object[], key: string, value: string | number): number {
     let indexSearched: number = -1;
-    
+
     listObject.forEach((item: any, index: number) => {
       if (item[key] === value) {
         indexSearched = index;
         return false;
       }
     });
-    
+
     return indexSearched;
   }
-  
+
   /**
    * @description Divide o Array em grupos
    * @param array
@@ -33,21 +33,21 @@ export class ArrayHelper {
   public static splitArray(array: any[], maxRowsSplit: number): any[] {
     const result: any[] = [];
     let group = 0;
-    
+
     array.forEach((value, index) => {
       if (result[group] === undefined) {
         result[group] = [];
       }
       result[group].push(value);
-      
+
       if ((index + 1) % maxRowsSplit === 0) {
         group = group + 1;
       }
     });
-    
+
     return result;
   }
-  
+
   /**
    * @description Converte array em string
    * @param array
@@ -55,7 +55,7 @@ export class ArrayHelper {
    */
   public static toString(array: any[], delimiter: string = ','): string {
     let stringResult = '';
-    
+
     array.forEach((value) => {
       if (!stringResult) {
         stringResult = value;
@@ -63,18 +63,18 @@ export class ArrayHelper {
         stringResult += delimiter + value;
       }
     });
-    
+
     return stringResult;
   }
-  
+
   public static merge(from: any[], to: any[]) {
     from.forEach((value) => {
       to.push(value);
     });
-    
+
     return to;
   }
-  
+
   public static filter<T>(arr: any[], value: string, index?: string): T[] {
     return arr.filter((item) => {
       const filter = index ? item[index] : item;
@@ -89,12 +89,12 @@ export class ArrayHelper {
               return false;
             }
           });
-  
+
         return find;
       }
     });
   }
-  
+
   public static orderBy<T>(arr: any[], by: string): T[] {
     return arr.sort((a, b) => {
       if (typeof a !== 'string' && typeof b !== 'string') {
