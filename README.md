@@ -1,4 +1,2 @@
 # koala
-- getStart
-
-`npm i koala`
+`npm i tskoala`
