@@ -1,6 +1,6 @@
 {
   "name": "tskoala",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Biblioteca com validadores, conversores e abstrações de algumas problemáticas",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
