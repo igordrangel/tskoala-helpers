@@ -1,2 +1,2 @@
-# koala
+# tskoala
 `npm i tskoala`
