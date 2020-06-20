@@ -4,10 +4,10 @@ export class KoalaObjectHelper {
   public static merge<A, B>(dados: A, object: B): A {
     if (!dados) dados = {} as A;
     const result: any = dados;
-    for (let [index, value] of Object.entries(object)) {
+    for (const [index, value] of Object.entries(object)) {
       result[index] = value;
     }
-    
+  
     return result;
   }
 

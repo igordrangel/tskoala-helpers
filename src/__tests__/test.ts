@@ -75,8 +75,15 @@ test('KoalaDelayHelper', async () => {
 
 test('KoalaObjectHelper', () => {
   expect(KoalaObjectHelper.merge({teste: 1}, {teste2: 2})).toStrictEqual({teste: 1, teste2: 2});
-  expect(KoalaObjectHelper.toString([
-    {param1: "Hellow", param2: "World"},
-    {param1: "Olá", param2: "Mundo"}
-  ], ['param1', 'param2'], ",", " ")).toBe("Hellow World,Olá Mundo");
+  expect(
+    KoalaObjectHelper.toString(
+      [
+        {param1: 'Hellow', param2: 'World'},
+        {param1: 'Olá', param2: 'Mundo'},
+      ],
+      ['param1', 'param2'],
+      ',',
+      ' ',
+    ),
+  ).toBe('Hellow World,Olá Mundo');
 });

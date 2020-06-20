@@ -4,7 +4,7 @@ const moment = moment_;
 
 export class KoalaDateHelper {
   public static transform(date: string | Date, getDate: boolean = true, getHours: boolean = true) {
-    if (typeof date === "string") {
+    if (typeof date === 'string') {
       date = new Date(date);
     }
     if (!getDate && getHours) {
