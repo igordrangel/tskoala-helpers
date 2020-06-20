@@ -6,48 +6,43 @@ npm i tskoala-helpers
 ```
 ## Usage
 <details>
- <summary><strong>ArrayHelper usage</strong></summary>
+ <summary><strong>KoalaArrayHelper usage</strong></summary>
  
 ### merge
 ```bash
 let arraySample = [1]
-ArrayHelper.merge([2], arraySample);
-
+KoalaArrayHelper.merge([2], arraySample);
 console.log(arraySample);// [1,2]
 ```
 ### filter
 ```bash
-let result = ArrayHelper.filter([
+let result = KoalaArrayHelper.filter([
     {teste: 123},
     {teste2: 543}
 ],"123", "teste");
-
 console.log(result);// [{teste: 123}]
 ```
 ### getIndexFromArray
 ```bash
-let index = ArrayHelper.getIndexFromArray([
+let index = KoalaArrayHelper.getIndexFromArray([
     {teste: 123},
     {teste: "123"}
 ],"teste",123);
-
 console.log(index);// 0
 ```
 ### splitArray
 ```bash
-let result = ArrayHelper.splitArray([1,2,3,4],2);
-
+let result = KoalaArrayHelper.splitArray([1,2,3,4],2);
 console.log(result);// [[1,2],[3,4]]
 ```
 ### toString
 ```bash
-let result = ArrayHelper.toString([1,2,3,4],',');
-
+let result = KoalaArrayHelper.toString([1,2,3,4],',');
 console.log(result);// "1,2,3,4"
 ```
 ### orderBy
 ```bash
-let result = ArrayHelper.orderBy([
+let result = KoalaArrayHelper.orderBy([
     {date: new Date('2020-06-18')},
     {date: new Date('2020-06-15')},
     {date: new Date('2020-06-17')},
@@ -63,7 +58,7 @@ let result = ArrayHelper.orderBy([
 console.log(result);
 
 //inverse
-let result = ArrayHelper.orderBy([
+let result = KoalaArrayHelper.orderBy([
     {date: new Date('2020-06-18')},
     {date: new Date('2020-06-15')},
     {date: new Date('2020-06-17')},
@@ -81,65 +76,132 @@ console.log(result);
 </details><br>
 
 <details>
- <summary><strong>StringHelper usage</strong></summary>
+ <summary><strong>KoalaStringHelper usage</strong></summary>
  
 ### clear
 ```bash
-let result = StringHelper.clear('Olá Mundo');
+let result = KoalaStringHelper.clear('Olá Mundo');
 console.log(result);// "Ola Mundo"
 
-let result = StringHelper.clear('Olá Mundo','-');
+let result = KoalaStringHelper.clear('Olá Mundo','-');
 console.log(result);// "Ola-Mundo"
 ```
 ### nbl2br
 ```bash
-let result = StringHelper.nbl2br('Olá\nMundo');
+let result = KoalaStringHelper.nbl2br('Olá\nMundo');
 console.log(result);// "Olá<br/>Mundo"
 ```
 ### applyMaskCpfOnString
 ```bash
-let result = StringHelper.applyMaskCpfOnString('47695329037');
+let result = KoalaStringHelper.applyMaskCpfOnString('47695329037');
 console.log(result);// "476.953.290-37"
 ```
 ### convertDateToBr
 ```bash
-let result = StringHelper.convertDateToBr('2020-01-01');
+let result = KoalaStringHelper.convertDateToBr('2020-01-01');
 console.log(result);// "01/01/2020"
 ```
 ### converToCamelCase
 ```bash
-let result = StringHelper.converToCamelCase('Olá Mundo');
+let result = KoalaStringHelper.converToCamelCase('Olá Mundo');
 console.log(result);// "olaMundo"
 ```
 ### split
 ```bash
-let result = StringHelper.split('1,2');
+let result = KoalaStringHelper.split('1,2');
 console.log(result);// ['1', '2']
 ```
 ### unmaskCoin
 ```bash
-let result = StringHelper.unmaskCoin('1.000,00');
+let result = KoalaStringHelper.unmaskCoin('1.000,00');
 console.log(result);// 1000
 ```
 ### generateRandomString
 ```bash
-let result = StringHelper.generateRandomString(4, true, true, true, true);
+let result = KoalaStringHelper.generateRandomString(4, true, true, true, true);
 console.log(result);// "4Oa@"
 ```
 </details><br>
 
 <details>
- <summary><strong>DateHelper usage</strong></summary>
+ <summary><strong>KoalaDateHelper usage</strong></summary>
  
 ### transform
 ```bash
-let result = DateHelper.transform('2020-06-20 00:00:00',true, false);
+let result = KoalaDateHelper.transform('2020-06-20 00:00:00',true, false);
 console.log(result);// '20/06/2020'
 
-let result = DateHelper.transform('2020-06-20 00:00:00',false, true);
+let result = KoalaDateHelper.transform('2020-06-20 00:00:00',false, true);
 console.log(result);// '00:00:00'
 
-let result = DateHelper.transform('2020-06-20 00:00:00');
+let result = KoalaDateHelper.transform('2020-06-20 00:00:00');
 console.log(result);// '20/06/2020 00:00:00'
+```
+### add
+```bash
+let result = KoalaDateHelper.add(1,'days', '2020-01-01');
+console.log(result);// '2020-01-02'
+```
+### sub
+```bash
+let result = KoalaDateHelper.sub(1,'days', '2020-01-02');
+console.log(result);// '2020-01-01'
+```
+</details>
+
+<details>
+ <summary><strong>KoalaDelayHelper usage</strong></summary>
+ 
+### waitFor
+```bash
+public async ForAsyncFunctions(){
+    await KoalaDelayHelper.waitFor(1000); // wait's 1s after to pass new line
+    // some code
+}
+```
+</details>
+
+<details>
+ <summary><strong>KoalaObjectHelper usage</strong></summary>
+ 
+### downloadBase64File
+> For frontend apps download file by base64
+```bash
+KoalaObjectHelper.downloadBase64File({
+    filename: 'test.jpg',
+    type: 'image/jpg',
+    base64File: '/9j/4AAQSkZJRgABA...'
+});
+```
+> For frontend apps view pdf file by base64
+```bash
+KoalaObjectHelper.viewPdf({
+    filename: 'test.pdf',
+    type: 'application/pdf',
+    base64File: '/9j/4AAQSkZJRgABA...'
+});
+```
+> Gets a Blob file by base64
+```bash
+let blob = KoalaObjectHelper.getBlobFile(
+    '/9j/4AAQSkZJRgABA...',
+    'image/jpg'
+);
+```
+### merge
+```bash
+let result = KoalaObjectHelper.merge(
+    {teste: 1}, 
+    {teste2: 2}
+);
+console.log(result); // {teste: 1,teste2: 2}
+```
+### toString
+```bash
+let result = KoalaObjectHelper.toString([
+    {param1: "Hellow",param2: "World"},
+    {param1: "Olá", param2: "Mundo"}
+],['param1','param2'], ","," ");
+console.log(result); // "Hellow World,Olá Mundo"
 ```
 </details>

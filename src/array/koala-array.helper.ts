@@ -1,7 +1,7 @@
-export class ArrayHelper {
+export class KoalaArrayHelper {
   public static getIndexFromArray(listObject: object[], key: string, value: string | number): number {
     let indexSearched: number = -1;
-
+    
     listObject.forEach((item: any, index: number) => {
       if (item[key] === value) {
         indexSearched = index;

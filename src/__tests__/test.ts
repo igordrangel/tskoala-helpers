@@ -1,23 +1,25 @@
-import { StringHelper } from '../string/string.helper';
-import { ArrayHelper } from '../array/array.helper';
-import { DateHelper } from '../date/date.helper';
+import { KoalaStringHelper } from '../string/koala-string.helper';
+import { KoalaArrayHelper } from '../array/koala-array.helper';
+import { KoalaDateHelper } from '../date/koala-date.helper';
+import { KoalaDelayHelper } from '../delay/koala-delay.helper';
+import { KoalaObjectHelper } from '../object/koala-object.helper';
 
-test('ArrayHelper', () => {
-  expect(ArrayHelper.merge([2], [1])).toStrictEqual([1, 2]);
-  expect(ArrayHelper.filter([{ teste: 123 }, { teste2: 543 }], '123', 'teste')).toStrictEqual([{ teste: 123 }]);
-  expect(ArrayHelper.getIndexFromArray([{ teste: 123 }], 'teste', 123)).toBe(0);
-  expect(ArrayHelper.splitArray([1, 2, 3, 4], 2)).toStrictEqual([
+test('KoalaArrayHelper', () => {
+  expect(KoalaArrayHelper.merge([2], [1])).toStrictEqual([1, 2]);
+  expect(KoalaArrayHelper.filter([{teste: 123}, {teste2: 543}], '123', 'teste')).toStrictEqual([{teste: 123}]);
+  expect(KoalaArrayHelper.getIndexFromArray([{teste: 123}], 'teste', 123)).toBe(0);
+  expect(KoalaArrayHelper.splitArray([1, 2, 3, 4], 2)).toStrictEqual([
     [1, 2],
     [3, 4],
   ]);
-  expect(ArrayHelper.toString([1, 2, 3, 4], ',')).toStrictEqual('1,2,3,4');
+  expect(KoalaArrayHelper.toString([1, 2, 3, 4], ',')).toStrictEqual('1,2,3,4');
   expect(
-    ArrayHelper.orderBy(
+    KoalaArrayHelper.orderBy(
       [
-        { date: new Date('2020-06-18') },
-        { date: new Date('2020-06-15') },
-        { date: new Date('2020-06-17') },
-        { date: new Date('2020-06-20') },
+        {date: new Date('2020-06-18')},
+        {date: new Date('2020-06-15')},
+        {date: new Date('2020-06-17')},
+        {date: new Date('2020-06-20')},
       ],
       'date',
     ),
@@ -28,12 +30,12 @@ test('ArrayHelper', () => {
     { date: new Date('2020-06-20') },
   ]);
   expect(
-    ArrayHelper.orderBy(
+    KoalaArrayHelper.orderBy(
       [
-        { date: new Date('2020-06-18') },
-        { date: new Date('2020-06-15') },
-        { date: new Date('2020-06-17') },
-        { date: new Date('2020-06-20') },
+        {date: new Date('2020-06-18')},
+        {date: new Date('2020-06-15')},
+        {date: new Date('2020-06-17')},
+        {date: new Date('2020-06-20')},
       ],
       'date',
       true,
@@ -46,20 +48,35 @@ test('ArrayHelper', () => {
   ]);
 });
 
-test('StringHelper', () => {
-  expect(StringHelper.clear('Olá Mundo')).toBe('Ola Mundo');
-  expect(StringHelper.clear('Olá Mundo', '-')).toBe('Ola-Mundo');
-  expect(StringHelper.nbl2br('Olá\nMundo')).toBe('Olá<br/>Mundo');
-  expect(StringHelper.applyMaskCpfOnString('47695329037')).toBe('476.953.290-37');
-  expect(StringHelper.convertDateToBr('2020-01-01')).toBe('01/01/2020');
-  expect(StringHelper.converToCamelCase('Olá Mundo')).toBe('olaMundo');
-  expect(StringHelper.split('1,2')).toStrictEqual(['1', '2']);
-  expect(StringHelper.unmaskCoin('1.000,00')).toBe(1000);
-  expect(StringHelper.generateRandomString(4, true, true, true, true));
+test('KoalaStringHelper', () => {
+  expect(KoalaStringHelper.clear('Olá Mundo')).toBe('Ola Mundo');
+  expect(KoalaStringHelper.clear('Olá Mundo', '-')).toBe('Ola-Mundo');
+  expect(KoalaStringHelper.nbl2br('Olá\nMundo')).toBe('Olá<br/>Mundo');
+  expect(KoalaStringHelper.applyMaskCpfOnString('47695329037')).toBe('476.953.290-37');
+  expect(KoalaStringHelper.convertDateToBr('2020-01-01')).toBe('01/01/2020');
+  expect(KoalaStringHelper.converToCamelCase('Olá Mundo')).toBe('olaMundo');
+  expect(KoalaStringHelper.split('1,2')).toStrictEqual(['1', '2']);
+  expect(KoalaStringHelper.unmaskCoin('1.000,00')).toBe(1000);
+  expect(KoalaStringHelper.generateRandomString(4, true, true, true, true));
 });
 
-test('DateHelper', () => {
-  expect(DateHelper.transform('2020-06-20 00:00:00', true, false)).toBe('20/06/2020');
-  expect(DateHelper.transform('2020-06-20 00:00:00', false, true)).toBe('00:00:00');
-  expect(DateHelper.transform('2020-06-20 00:00:00')).toBe('20/06/2020 00:00:00');
-})
+test('KoalaDateHelper', () => {
+  expect(KoalaDateHelper.transform('2020-06-20 00:00:00', true, false)).toBe('20/06/2020');
+  expect(KoalaDateHelper.transform('2020-06-20 00:00:00', false, true)).toBe('00:00:00');
+  expect(KoalaDateHelper.transform('2020-06-20 00:00:00')).toBe('20/06/2020 00:00:00');
+  expect(KoalaDateHelper.transform(KoalaDateHelper.add(1, 'days', '2020-01-01'), true, false)).toBe('02/01/2020');
+  expect(KoalaDateHelper.transform(KoalaDateHelper.sub(1, 'days', '2020-01-02'), true, false)).toBe('01/01/2020');
+});
+
+test('KoalaDelayHelper', async () => {
+  await KoalaDelayHelper.waitFor(1000);
+  expect(true).toBe(true);
+});
+
+test('KoalaObjectHelper', () => {
+  expect(KoalaObjectHelper.merge({teste: 1}, {teste2: 2})).toStrictEqual({teste: 1, teste2: 2});
+  expect(KoalaObjectHelper.toString([
+    {param1: "Hellow", param2: "World"},
+    {param1: "Olá", param2: "Mundo"}
+  ], ['param1', 'param2'], ",", " ")).toBe("Hellow World,Olá Mundo");
+});

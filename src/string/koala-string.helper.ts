@@ -1,16 +1,16 @@
 import * as lodash from 'lodash';
 
-export class StringHelper {
-  public static convertDateToBr(stringDate: string): string {
-    if (stringDate.indexOf('-') >= 0) {
-      const arrStringDate = stringDate.split('-');
-      stringDate = `${arrStringDate[2]}/${arrStringDate[1]}/${arrStringDate[0]}`;
-    }
-
-    return stringDate;
-  }
-
-  public static split(value: string): string[] {
+export class KoalaStringHelper {
+	public static convertDateToBr(stringDate: string): string {
+		if (stringDate.indexOf('-') >= 0) {
+			const arrStringDate = stringDate.split('-');
+			stringDate = `${arrStringDate[2]}/${arrStringDate[1]}/${arrStringDate[0]}`;
+		}
+		
+		return stringDate;
+	}
+	
+	public static split(value: string): string[] {
     if (value.indexOf(',') >= 0) {
       return value.split(',');
     } else {

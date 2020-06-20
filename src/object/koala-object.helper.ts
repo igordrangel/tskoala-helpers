@@ -1,13 +1,13 @@
 import b64toBlob from 'b64-to-blob';
 
-export class ObjectHelper {
+export class KoalaObjectHelper {
   public static merge<A, B>(dados: A, object: B): A {
     if (!dados) dados = {} as A;
     const result: any = dados;
-    Object.keys(object).forEach((value, index) => {
+    for (let [index, value] of Object.entries(object)) {
       result[index] = value;
-    });
-
+    }
+    
     return result;
   }
 
@@ -24,7 +24,7 @@ export class ObjectHelper {
         if (!name && obj[paramName]) {
           name = obj[paramName];
         } else if (name && obj[paramName]) {
-          name += ` ${delimiterParam} ` + obj[paramName];
+          name += `${delimiterParam}` + obj[paramName];
         }
       });
 
@@ -57,8 +57,8 @@ export class ObjectHelper {
     link.click();
     document.body.removeChild(link);
   }
-
-  private static getBlobFile(base64File: string, type: string): Blob {
+  
+  public static getBlobFile(base64File: string, type: string): Blob {
     return b64toBlob(base64File, type);
   }
 }
