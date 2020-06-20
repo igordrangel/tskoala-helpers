@@ -85,13 +85,13 @@ export class ArrayHelper {
   public static orderBy<T>(arr: any[], by: string, inverse: boolean = false): T[] {
     return arr.sort((a, b) => {
       if (typeof a !== 'string' && typeof b !== 'string') {
-	      if ((!inverse && a[by] > b[by]) || (inverse && a[by] < b[by])) {
-		      return 1;
-	      } else if ((!inverse && a[by] < b[by]) || (inverse && a[by] > b[by])) {
-		      return -1;
-	      } else {
-		      return 0;
-	      }
+        if ((!inverse && a[by] > b[by]) || (inverse && a[by] < b[by])) {
+          return 1;
+        } else if ((!inverse && a[by] < b[by]) || (inverse && a[by] > b[by])) {
+          return -1;
+        } else {
+          return 0;
+        }
       } else {
         return 0;
       }

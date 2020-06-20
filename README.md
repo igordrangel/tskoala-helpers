@@ -2,7 +2,7 @@
 
 ## Install
 ```bash
-npm i @tskoala/helpers
+npm i tskoala-helpers
 ```
 ## Usage
 <details>
