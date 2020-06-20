@@ -6,7 +6,7 @@ export class KoalaStringHelper {
       const arrStringDate = stringDate.split('-');
       stringDate = `${arrStringDate[2]}/${arrStringDate[1]}/${arrStringDate[0]}`;
     }
-    
+  
     return stringDate;
   }
   

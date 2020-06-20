@@ -147,7 +147,7 @@ console.log(result);// '2020-01-02'
 let result = KoalaDateHelper.sub(1,'days', '2020-01-02');
 console.log(result);// '2020-01-01'
 ```
-</details>
+</details><br>
 
 <details>
  <summary><strong>KoalaDelayHelper usage</strong></summary>
@@ -159,7 +159,7 @@ public async ForAsyncFunctions(){
     // some code
 }
 ```
-</details>
+</details><br>
 
 <details>
  <summary><strong>KoalaObjectHelper usage</strong></summary>
@@ -204,4 +204,4 @@ let result = KoalaObjectHelper.toString([
 ],['param1','param2'], ","," ");
 console.log(result); // "Hellow World,Olá Mundo"
 ```
-</details>
+</details><br>
