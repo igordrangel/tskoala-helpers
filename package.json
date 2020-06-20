@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/igordrangel/koala.git"
+    "url": "git+https://github.com/igordrangel/tskoala-helpers.git"
   },
   "keywords": [
     "helpers",
@@ -31,9 +31,9 @@
   "author": "Igor D. Rangel",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/igordrangel/koala/issues"
+    "url": "https://github.com/igordrangel/tskoala-helpers/issues"
   },
-  "homepage": "https://github.com/igordrangel/koala#readme",
+  "homepage": "https://github.com/igordrangel/tskoala-helpers#readme",
   "devDependencies": {
     "@types/jest": "^26.0.0",
     "@types/lodash": "^4.14.155",
