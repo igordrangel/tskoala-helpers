@@ -1,17 +1,5 @@
 export class ArrayHelper {
-  /**
-   * @description Converte um object em array
-   * @param listObject
-   */
-  public static objectToArray<T>(listObject: T): any[] {
-    const result: any[] = [];
-    Object.keys(listObject).forEach((value, key) => {
-      result[key] = value;
-    });
-
-    return result;
-  }
-
+  
   public static getIndexFromArray(listObject: object[], key: string, value: string | number): number {
     let indexSearched: number = -1;
 
@@ -94,13 +82,19 @@ export class ArrayHelper {
       }
     });
   }
-
-  public static orderBy<T>(arr: any[], by: string): T[] {
+  
+  public static orderBy<T>(arr: any[], by: string, inverse: boolean = false): T[] {
     return arr.sort((a, b) => {
       if (typeof a !== 'string' && typeof b !== 'string') {
-        if (a[by] > b[by]) {
+        if (
+          (!inverse && (a[by] > b[by])) ||
+          (inverse && (a[by] < b[by]))
+        ) {
           return 1;
-        } else if (a[by] < b[by]) {
+        } else if (
+          (!inverse && (a[by] < b[by])) ||
+          (inverse && (a[by] > b[by]))
+        ) {
           return -1;
         } else {
           return 0;

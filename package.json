@@ -1,5 +1,5 @@
 {
-  "name": "tskoala",
+  "name": "@tskoala/helpers",
   "version": "0.0.4",
   "description": "Biblioteca com validadores, conversores e abstrações de algumas problemáticas",
   "main": "dist/index.js",

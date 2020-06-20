@@ -18,13 +18,13 @@ export class StringHelper {
     }
   }
 
-  public static clear(value: string) {
-    return value
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '') // Remove acentos
-      .replace(/([^\w]+|\s+)/g, '-') // Substitui espaço e outros caracteres por hífen
-      .replace(/\-\-+/g, '-') // Substitui multiplos hífens por um único hífen
-      .replace(/(^-+|-+$)/, '');
+  public static clear(value: string, delimiter: string = ' ') {
+	  return value
+		  .normalize('NFD')
+		  .replace(/[\u0300-\u036f]/g, '') // Remove acentos
+		  .replace(/([^\w]+|\s+)/g, delimiter) // Substitui espaço e outros caracteres por hífen
+		  .replace(/\-\-+/g, '-') // Substitui multiplos hífens por um único hífen
+		  .replace(/(^-+|-+$)/, '');
   }
 
   public static converToCamelCase(value: string) {
