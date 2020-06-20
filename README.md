@@ -126,4 +126,20 @@ console.log(result);// 1000
 let result = StringHelper.generateRandomString(4, true, true, true, true);
 console.log(result);// "4Oa@"
 ```
+</details><br>
+
+<details>
+ <summary><strong>DateHelper usage</strong></summary>
+ 
+### transform
+```bash
+let result = DateHelper.transform('2020-06-20 00:00:00',true, false);
+console.log(result);// '20/06/2020'
+
+let result = DateHelper.transform('2020-06-20 00:00:00',false, true);
+console.log(result);// '00:00:00'
+
+let result = DateHelper.transform('2020-06-20 00:00:00');
+console.log(result);// '20/06/2020 00:00:00'
+```
 </details>

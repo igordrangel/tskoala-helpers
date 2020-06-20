@@ -1,5 +1,6 @@
 import { StringHelper } from '../string/string.helper';
 import { ArrayHelper } from '../array/array.helper';
+import { DateHelper } from '../date/date.helper';
 
 test('ArrayHelper', () => {
   expect(ArrayHelper.merge([2], [1])).toStrictEqual([1, 2]);
@@ -56,3 +57,9 @@ test('StringHelper', () => {
   expect(StringHelper.unmaskCoin('1.000,00')).toBe(1000);
   expect(StringHelper.generateRandomString(4, true, true, true, true));
 });
+
+test('DateHelper', () => {
+  expect(DateHelper.transform('2020-06-20 00:00:00', true, false)).toBe('20/06/2020');
+  expect(DateHelper.transform('2020-06-20 00:00:00', false, true)).toBe('00:00:00');
+  expect(DateHelper.transform('2020-06-20 00:00:00')).toBe('20/06/2020 00:00:00');
+})
