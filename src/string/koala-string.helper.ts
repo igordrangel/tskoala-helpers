@@ -6,19 +6,19 @@ export class KoalaStringHelper {
       const arrStringDate = stringDate.split('-');
       stringDate = `${arrStringDate[2]}/${arrStringDate[1]}/${arrStringDate[0]}`;
     }
-  
-    return stringDate;
+	
+	  return stringDate;
   }
-  
-  public static split(value: string): string[] {
+	
+	public static split(value: string): string[] {
     if (value.indexOf(',') >= 0) {
       return value.split(',');
     } else {
       return value.split(new RegExp(/\r\n|\r|\n/, 'gi'));
     }
   }
-  
-  public static clear(value: string, delimiter: string = ' ') {
+	
+	public static clear(value: string, delimiter: string = ' ') {
     return value
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '') // Remove acentos

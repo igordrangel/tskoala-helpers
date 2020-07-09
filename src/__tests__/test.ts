@@ -7,7 +7,7 @@ import { KoalaObjectHelper } from '../object/koala-object.helper';
 test('KoalaArrayHelper', () => {
   expect(KoalaArrayHelper.merge([2], [1])).toStrictEqual([1, 2]);
   expect(KoalaArrayHelper.filter([{teste: 123}, {teste2: 543}], '123', 'teste')).toStrictEqual([{teste: 123}]);
-  expect(KoalaArrayHelper.getIndexFromArray([{teste: 123}], 'teste', 123)).toBe(0);
+  expect(KoalaArrayHelper.getIndexFromArray([{teste: 123}, {teste: 123}], 'teste', 123)).toBe(0);
   expect(KoalaArrayHelper.splitArray([1, 2, 3, 4], 2)).toStrictEqual([
     [1, 2],
     [3, 4],
