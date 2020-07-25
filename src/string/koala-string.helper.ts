@@ -1,34 +1,34 @@
 import * as lodash from 'lodash';
 
 export class KoalaStringHelper {
-  public static convertDateToBr(stringDate: string): string {
-    if (stringDate.indexOf('-') >= 0) {
-      const arrStringDate = stringDate.split('-');
-      stringDate = `${arrStringDate[2]}/${arrStringDate[1]}/${arrStringDate[0]}`;
-    }
-	
-	  return stringDate;
-  }
+	public static convertDateToBr(stringDate: string): string {
+		if (stringDate.indexOf('-') >= 0) {
+			const arrStringDate = stringDate.split('-');
+			stringDate = `${arrStringDate[2]}/${arrStringDate[1]}/${arrStringDate[0]}`;
+		}
+		
+		return stringDate;
+	}
 	
 	public static split(value: string): string[] {
-    if (value.indexOf(',') >= 0) {
-      return value.split(',');
-    } else {
-      return value.split(new RegExp(/\r\n|\r|\n/, 'gi'));
-    }
-  }
+		if (value.indexOf(',') >= 0) {
+			return value.split(',');
+		} else {
+			return value.split(new RegExp(/\r\n|\r|\n/, 'gi'));
+		}
+	}
 	
 	public static clear(value: string, delimiter: string = ' ') {
-    return value
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '') // Remove acentos
-      .replace(/([^\w]+|\s+)/g, delimiter) // Substitui espaço e outros caracteres por hífen
-      .replace(/\-\-+/g, '-') // Substitui multiplos hífens por um único hífen
-      .replace(/(^-+|-+$)/, '');
-  }
-
-  public static converToCamelCase(value: string) {
-    return lodash.camelCase(this.clear(value));
+		return value
+			.normalize('NFD')
+			.replace(/[\u0300-\u036f]/g, '') // Remove acentos
+			.replace(/([^\w]+|\s+)/g, delimiter) // Substitui espaço e outros caracteres por hífen
+			.replace(/\-\-+/g, '-') // Substitui multiplos hífens por um único hífen
+			.replace(/(^-+|-+$)/, '');
+	}
+	
+	public static converToCamelCase(value: string) {
+		return lodash.camelCase(this.clear(value));
   }
 
   public static unmaskCoin(value: string): number {
