@@ -5,6 +5,9 @@ const moment = moment_;
 export class KoalaDateHelper {
   public static transform(date: string | Date, getDate: boolean = true, getHours: boolean = true) {
     if (typeof date === 'string') {
+      if (date.indexOf(':') < 0) {
+        date += ' 00:00:00';
+      }
       date = new Date(date);
     }
     if (!getDate && getHours) {

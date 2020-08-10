@@ -61,7 +61,7 @@ test('KoalaStringHelper', () => {
 });
 
 test('KoalaDateHelper', () => {
-  expect(KoalaDateHelper.transform('2020-06-20 00:00:00', true, false)).toBe('20/06/2020');
+  expect(KoalaDateHelper.transform('2020-06-20', true, false)).toBe('20/06/2020');
   expect(KoalaDateHelper.transform('2020-06-20 00:00:00', false, true)).toBe('00:00:00');
   expect(KoalaDateHelper.transform('2020-06-20 00:00:00')).toBe('20/06/2020 00:00:00');
   expect(KoalaDateHelper.transform(KoalaDateHelper.add(1, 'days', '2020-01-01'), true, false)).toBe('02/01/2020');

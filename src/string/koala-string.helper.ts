@@ -29,16 +29,16 @@ export class KoalaStringHelper {
 	
 	public static converToCamelCase(value: string) {
 		return lodash.camelCase(this.clear(value));
-  }
-
-  public static unmaskCoin(value: string): number {
-    return parseFloat(
-      Number(
-        value
-          .replace('R$', '')
-          .replace(/\s(?=\s)/g, '')
-          .replace(/[\n\r\t]/g, '')
-          .replace(/[^0-9a-zA-Z\(,\@\-\!\#\\$\%\&\*\(\)\_\+\=\{\[\}\]\/\?\;\:\.\|)\.]+/g, '')
+	}
+	
+	public static unmaskCoin(value: string): number {
+		return parseFloat(
+			Number(
+				value
+					.replace('R$', '')
+					.replace(/\s(?=\s)/g, '')
+					.replace(/[\n\r\t]/g, '')
+					.replace(/[^0-9a-zA-Z\(,\@\-\!\#\\$\%\&\*\(\)\_\+\=\{\[\}\]\/\?\;\:\.\|)\.]+/g, '')
           .replace(/\./g, '')
           .replace(/,/g, '.'),
       ).toFixed(2),
