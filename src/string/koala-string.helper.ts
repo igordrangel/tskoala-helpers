@@ -6,10 +6,10 @@ export class KoalaStringHelper {
       const arrStringDate = stringDate.split('-');
       stringDate = `${arrStringDate[2]}/${arrStringDate[1]}/${arrStringDate[0]}`;
     }
-    
+
     return stringDate;
   }
-  
+
   public static split(value: string): string[] {
     if (value.indexOf(',') >= 0) {
       return value.split(',');
@@ -50,7 +50,7 @@ export class KoalaStringHelper {
     numbers: boolean,
     uppercase: boolean         = false,
     lowercase: boolean         = false,
-    specialCharacters: boolean = false
+    specialCharacters: boolean = false,
   ): string {
     const lmin = 'abcdefghijklmnopqrstuvwxyz';
     const lmai = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -76,9 +76,9 @@ export class KoalaStringHelper {
   public static generateRandomNumber(min: number, max: number): Promise<number> {
     return new Promise<number>((resolve, reject) => {
       if (min > max) {
-        reject(new Error("The min value cannot be greater than the max"));
+        reject(new Error('The min value cannot be greater than the max'));
       }
-      
+  
       resolve(Math.floor(Math.random() * (max - min + 1)) + min);
     });
   }
