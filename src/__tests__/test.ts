@@ -48,7 +48,7 @@ test('KoalaArrayHelper', () => {
   ]);
 });
 
-test('KoalaStringHelper', () => {
+test('KoalaStringHelper', async () => {
   expect(KoalaStringHelper.clear('Olá Mundo')).toBe('Ola Mundo');
   expect(KoalaStringHelper.clear('Olá Mundo', '-')).toBe('Ola-Mundo');
   expect(KoalaStringHelper.nbl2br('Olá\nMundo')).toBe('Olá<br/>Mundo');
@@ -58,10 +58,11 @@ test('KoalaStringHelper', () => {
   expect(KoalaStringHelper.split('1,2')).toStrictEqual(['1', '2']);
   expect(KoalaStringHelper.unmaskCoin('1.000,00')).toBe(1000);
   expect(KoalaStringHelper.generateRandomString(4, true, true, true, true));
+  expect(await KoalaStringHelper.generateRandomNumber(1000, 1000)).toBe(1000);
 });
 
 test('KoalaDateHelper', () => {
-  expect(KoalaDateHelper.transform('2020-06-20', true, false)).toBe('20/06/2020');
+  expect(KoalaDateHelper.transform('1993-11-02', true, false)).toBe('02/11/1993');
   expect(KoalaDateHelper.transform('2020-06-20 00:00:00', false, true)).toBe('00:00:00');
   expect(KoalaDateHelper.transform('2020-06-20 00:00:00')).toBe('20/06/2020 00:00:00');
   expect(KoalaDateHelper.transform(KoalaDateHelper.add(1, 'days', '2020-01-01'), true, false)).toBe('02/01/2020');

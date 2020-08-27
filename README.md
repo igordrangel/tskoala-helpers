@@ -121,7 +121,14 @@ console.log(result);// 1000
 let result = KoalaStringHelper.generateRandomString(4, true, true, true, true);
 console.log(result);// "4Oa@"
 ```
+### generateRandomNumber
+```bash
+KoalaStringHelper.generateRandomNumber(1000, 2000)
+                 .then(value => console.log(result);// "1389")
+                 .catch(e => console.error(e));
+```
 </details><br>
+
 
 <details>
  <summary><strong>KoalaDateHelper usage</strong></summary>
