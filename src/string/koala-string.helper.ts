@@ -17,7 +17,7 @@ export class KoalaStringHelper {
       return value.split(new RegExp(/\r\n|\r|\n/, 'gi'));
     }
   }
-  
+
   public static clear(value: string, delimiter: string = ' ') {
     return value
       .normalize('NFD')
@@ -26,7 +26,7 @@ export class KoalaStringHelper {
       .replace(/\-\-+/g, '-') // Substitui multiplos hífens por um único hífen
       .replace(/(^-+|-+$)/, '');
   }
-  
+
   public static converToCamelCase(value: string) {
     return lodash.camelCase(this.clear(value));
   }
@@ -84,14 +84,19 @@ export class KoalaStringHelper {
   }
   
   public static applyMaskCpfOnString(cpf: string) {
-    return cpf
-      .replace(/\D/g, '')
-      .replace(/(\d{3})(\d)/, '$1.$2')
-      .replace(/(\d{3})(\d)/, '$1.$2')
-      .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+    return this.leftPad(cpf.replace(/\D/g, ''), 11)
+               .replace(/\D/g, '')
+               .replace(/(\d{3})(\d)/, '$1.$2')
+               .replace(/(\d{3})(\d)/, '$1.$2')
+               .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
   }
   
   public static nbl2br(value: string) {
     return value.replace(new RegExp(/\r\n|\r|\n/, 'gi'), '<br/>');
+  }
+  
+  private static leftPad(value: string, totalWidth: number, paddingChar?: string) {
+    const length = totalWidth - value.toString().length + 1;
+    return Array(length).join(paddingChar || '0') + value;
   }
 }

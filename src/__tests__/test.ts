@@ -6,8 +6,8 @@ import { KoalaObjectHelper } from '../object/koala-object.helper';
 
 test('KoalaArrayHelper', () => {
   expect(KoalaArrayHelper.merge([2], [1])).toStrictEqual([1, 2]);
-  expect(KoalaArrayHelper.filter([{teste: 123}, {teste2: 543}], '123', 'teste')).toStrictEqual([{teste: 123}]);
-  expect(KoalaArrayHelper.getIndexFromArray([{teste: 123}, {teste: 123}], 'teste', 123)).toBe(0);
+  expect(KoalaArrayHelper.filter([{ teste: 123 }, { teste2: 543 }], '123', 'teste')).toStrictEqual([{ teste: 123 }]);
+  expect(KoalaArrayHelper.getIndexFromArray([{ teste: 123 }, { teste: 123 }], 'teste', 123)).toBe(0);
   expect(KoalaArrayHelper.splitArray([1, 2, 3, 4], 2)).toStrictEqual([
     [1, 2],
     [3, 4],
@@ -16,10 +16,10 @@ test('KoalaArrayHelper', () => {
   expect(
     KoalaArrayHelper.orderBy(
       [
-        {date: new Date('2020-06-18')},
-        {date: new Date('2020-06-15')},
-        {date: new Date('2020-06-17')},
-        {date: new Date('2020-06-20')},
+        { date: new Date('2020-06-18') },
+        { date: new Date('2020-06-15') },
+        { date: new Date('2020-06-17') },
+        { date: new Date('2020-06-20') },
       ],
       'date',
     ),
@@ -32,10 +32,10 @@ test('KoalaArrayHelper', () => {
   expect(
     KoalaArrayHelper.orderBy(
       [
-        {date: new Date('2020-06-18')},
-        {date: new Date('2020-06-15')},
-        {date: new Date('2020-06-17')},
-        {date: new Date('2020-06-20')},
+        { date: new Date('2020-06-18') },
+        { date: new Date('2020-06-15') },
+        { date: new Date('2020-06-17') },
+        { date: new Date('2020-06-20') },
       ],
       'date',
       true,
@@ -49,10 +49,9 @@ test('KoalaArrayHelper', () => {
 });
 
 test('KoalaStringHelper', async () => {
-  expect(KoalaStringHelper.clear('Olá Mundo')).toBe('Ola Mundo');
   expect(KoalaStringHelper.clear('Olá Mundo', '-')).toBe('Ola-Mundo');
   expect(KoalaStringHelper.nbl2br('Olá\nMundo')).toBe('Olá<br/>Mundo');
-  expect(KoalaStringHelper.applyMaskCpfOnString('47695329037')).toBe('476.953.290-37');
+  expect(KoalaStringHelper.applyMaskCpfOnString('9964085842')).toBe('099.640.858-42');
   expect(KoalaStringHelper.convertDateToBr('2020-01-01')).toBe('01/01/2020');
   expect(KoalaStringHelper.converToCamelCase('Olá Mundo')).toBe('olaMundo');
   expect(KoalaStringHelper.split('1,2')).toStrictEqual(['1', '2']);
@@ -75,12 +74,12 @@ test('KoalaDelayHelper', async () => {
 });
 
 test('KoalaObjectHelper', () => {
-  expect(KoalaObjectHelper.merge({teste: 1}, {teste2: 2})).toStrictEqual({teste: 1, teste2: 2});
+  expect(KoalaObjectHelper.merge({ teste: 1 }, { teste2: 2 })).toStrictEqual({ teste: 1, teste2: 2 });
   expect(
     KoalaObjectHelper.toString(
       [
-        {param1: 'Hellow', param2: 'World'},
-        {param1: 'Olá', param2: 'Mundo'},
+        { param1: 'Hellow', param2: 'World' },
+        { param1: 'Olá', param2: 'Mundo' },
       ],
       ['param1', 'param2'],
       ',',
