@@ -1,4 +1,4 @@
-import b64toBlob from 'b64-to-blob';
+import * as b64toBlob from 'b64-to-blob';
 
 export class KoalaObjectHelper {
   public static merge<A, B>(dados: A, object: B): A {
@@ -7,7 +7,7 @@ export class KoalaObjectHelper {
     for (const [index, value] of Object.entries(object)) {
       result[index] = value;
     }
-  
+
     return result;
   }
 
@@ -59,6 +59,6 @@ export class KoalaObjectHelper {
   }
   
   public static getBlobFile(base64File: string, type: string): Blob {
-    return b64toBlob(base64File, type);
+    return b64toBlob.default(base64File, type);
   }
 }
