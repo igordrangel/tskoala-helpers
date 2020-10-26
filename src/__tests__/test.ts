@@ -66,7 +66,7 @@ test('KoalaDateHelper', () => {
   expect(KoalaDateHelper.transform('2020-06-20 00:00:00')).toBe('20/06/2020 00:00:00');
   expect(KoalaDateHelper.transform(KoalaDateHelper.add(1, 'days', '2020-01-01'), true, false)).toBe('02/01/2020');
   expect(KoalaDateHelper.transform(KoalaDateHelper.sub(1, 'days', '2020-01-02'), true, false)).toBe('01/01/2020');
-  expect(KoalaDateHelper.sub(1, 'days', new Date('2020-01-02 00:00:00'), 'DD/MM/YYYY')).toBe('01/01/2020');
+  expect(KoalaDateHelper.sub(1, 'days', '2020-01-02', 'DD/MM/YYYY')).toBe('01/01/2020');
 });
 
 test('KoalaDelayHelper', async () => {
