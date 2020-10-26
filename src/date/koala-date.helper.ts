@@ -24,7 +24,7 @@ export class KoalaDateHelper {
     return moment(date).add(qtd, type).toDate();
   }
   
-  public static sub(qtd: number, type: 'days' | 'months' | 'years' = 'days', date?: string, format?: string) {
+  public static sub(qtd: number, type: 'days' | 'months' | 'years' = 'days', date?: string | Date, format?: string) {
     const momentDate: Moment = moment(date).subtract(qtd, type);
     if (format) {
       return momentDate.format(format);
