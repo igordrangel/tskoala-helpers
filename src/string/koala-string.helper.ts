@@ -69,7 +69,7 @@ export class KoalaStringHelper {
       const rand = Math.floor(Math.random() * (len - 1 + 1)) + 1;
       result += characters[rand - 1];
     }
-  
+
     return result;
   }
   
