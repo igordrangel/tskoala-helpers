@@ -5,5 +5,5 @@ export enum KoalaDateDay {
   wednesday,
   thursday,
   friday,
-  saturday
+  saturday,
 }

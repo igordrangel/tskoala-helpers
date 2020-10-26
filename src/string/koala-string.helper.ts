@@ -72,7 +72,7 @@ export class KoalaStringHelper {
 
     return result;
   }
-  
+
   public static generateRandomNumber(min: number, max: number): Promise<number> {
     return new Promise<number>((resolve, reject) => {
       if (min > max) {

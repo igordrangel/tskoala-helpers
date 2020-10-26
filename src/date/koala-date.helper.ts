@@ -20,7 +20,13 @@ export class KoalaDateHelper {
     }
   }
   
-  public static add(qtd: number, type: 'days' | 'months' | 'years' = 'days', date?: string | Date, format?: string, ignoreDays?: KoalaDateDay[]) {
+  public static add(
+    qtd: number,
+    type: 'days' | 'months' | 'years' = 'days',
+    date?: string | Date,
+    format?: string,
+    ignoreDays?: KoalaDateDay[],
+  ) {
     let momentDate = moment(date).add(qtd, type);
     
     if (!ignoreDays) ignoreDays = [];
@@ -35,7 +41,13 @@ export class KoalaDateHelper {
     }
   }
   
-  public static sub(qtd: number, type: 'days' | 'months' | 'years' = 'days', date?: string | Date, format?: string, ignoreDays?: KoalaDateDay[]) {
+  public static sub(
+    qtd: number,
+    type: 'days' | 'months' | 'years' = 'days',
+    date?: string | Date,
+    format?: string,
+    ignoreDays?: KoalaDateDay[],
+  ) {
     let momentDate = moment(date).subtract(qtd, type);
     
     if (!ignoreDays) ignoreDays = [];

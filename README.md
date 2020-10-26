@@ -147,12 +147,24 @@ console.log(result);// '20/06/2020 00:00:00'
 ### add
 ```bash
 let result = KoalaDateHelper.add(1,'days', '2020-01-01');
-console.log(result);// '2020-01-02'
+console.log(result);// Date('2020-01-02')
+
+let result = KoalaDateHelper.add(1,'days', '2020-10-30', 'YYYY-MM-DD', [
+    KoalaDateDay.saturday, 
+    KoalaDateDay.sunday
+]);
+console.log(result);// Date('2020-11-02')
 ```
 ### sub
 ```bash
 let result = KoalaDateHelper.sub(1,'days', '2020-01-02');
-console.log(result);// '2020-01-01'
+console.log(result);// Date(''2020-01-01')
+
+let result = KoalaDateHelper.add(1,'days', '2020-10-26', 'YYYY-MM-DD', [
+    KoalaDateDay.saturday, 
+    KoalaDateDay.sunday
+]);
+console.log(result);// Date('2020-11-23')
 ```
 </details><br>
 
