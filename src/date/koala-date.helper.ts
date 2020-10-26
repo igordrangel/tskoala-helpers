@@ -1,4 +1,5 @@
 import * as moment_ from 'moment';
+import { Moment } from 'moment';
 
 const moment = moment_;
 
@@ -23,7 +24,12 @@ export class KoalaDateHelper {
     return moment(date).add(qtd, type).toDate();
   }
   
-  public static sub(qtd: number, type: 'days' | 'months' | 'years' = 'days', date?: string) {
-    return moment(date).subtract(qtd, type).toDate();
+  public static sub(qtd: number, type: 'days' | 'months' | 'years' = 'days', date?: string, format?: string) {
+    const momentDate: Moment = moment(date).subtract(qtd, type);
+    if (format) {
+      return momentDate.format(format);
+    } else {
+      return momentDate.toDate();
+    }
   }
 }

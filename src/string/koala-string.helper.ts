@@ -63,7 +63,7 @@ export class KoalaStringHelper {
     if (uppercase) characters += lmai;
     if (numbers) characters += num;
     if (specialCharacters) characters += simb;
-  
+
     const len = characters.length;
     for (let n = 1; n <= length; n++) {
       const rand = Math.floor(Math.random() * (len - 1 + 1)) + 1;
